@@ -41,7 +41,7 @@ reviewSchema.index({tours:1,users:1},{unique:true});
 
 //Populate middleware
 reviewSchema.pre(/^find/, function (next) {
-  console.log('me bhi chal gaya');
+  // console.log('me bhi chal gaya');
   // this.populate({path:'users',select:'name'}).populate({path:'tours',select:'name'});
   //Note - so here we do not want the tours to be populated when we hit get tour by id route , because it is not required their.
   this.populate({ path: 'users', select: 'name' });
@@ -52,7 +52,7 @@ reviewSchema.pre(/^find/, function (next) {
 
 //Note--this is for setting avgRating and ratingsQty on a particular tour whose review is added , based ont that rating is given and then avg is calculated
 reviewSchema.statics.calcAvgRatings = async function (tourId) {
-  console.log(tourId);
+  // console.log(tourId);
   const stats = await this.aggregate([
     {
       $match: { tours: tourId },
@@ -74,7 +74,7 @@ reviewSchema.statics.calcAvgRatings = async function (tourId) {
 };
 
 reviewSchema.post('save',function(){
-  console.log(this)
+  // console.log(this)
   this.constructor.calcAvgRatings(this.tours);
 })
 

@@ -30,7 +30,7 @@ function sendErrProd(err, res) {
       err,
     });
   } else {
-    console.log('Error found');
+    // console.log('Error found');
     res.status(500).json({
       status: 'error',
       message: 'something went wrong',
@@ -64,7 +64,7 @@ function handleTokenExpiredErr(){
 }
 
 module.exports = (err, req, res, next) => {
-    console.log('second');
+    // console.log('second');
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 

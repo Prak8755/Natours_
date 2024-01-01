@@ -5,14 +5,14 @@ export async function updateSettings(data, type) {
   try {
     const url =
       type === 'settings'
-        ? 'http://localhost:8000/api/v1/users/updateMe'
-        : 'http://localhost:8000/api/v1/users/updateMyPassword';
+        ? '/api/v1/users/updateMe'
+        : '/api/v1/users/updateMyPassword';
     let result = await axios({
       method: 'PATCH',
       url,
       data,
     });
-    console.log(result);
+    // console.log(result);
     if (result.data.status === 'success') {
       alert('Updated successfully');
     }

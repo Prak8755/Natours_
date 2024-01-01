@@ -28,7 +28,7 @@ class APIfeatures{
     fields(){
       if(this.queryObj.fields){
              let newField=this.queryObj.fields.split(',').join(' ');
-             console.log(newField);
+            //  console.log(newField);
               this.query=this.query.select(newField);
             }
             else{

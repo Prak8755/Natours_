@@ -14,6 +14,7 @@ const hpp=require('hpp');
 const reviewRoutes=require('./Routes/reviewRoutes')
 const viewRoutes=require('./Routes/viewRoutes.js');
 const cookieParser=require('cookie-parser');
+const compression=require('compression')
 
 //Setting security http headers
 app.use(helmet());
@@ -49,6 +50,9 @@ app.use(cookieParser());
 const tourRouter=require('./Routes/tourRoutes');
 
 const userRouter=require('./Routes/userRoutes.js');
+
+
+app.use(compression());
 
 app.use((req,res,next)=>{   
     // console.log(req.cookies);

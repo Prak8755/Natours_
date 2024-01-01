@@ -33,7 +33,7 @@ if (updateSettingsBtn) {
 if (updatePasswordBtn) {
   updatePasswordBtn.addEventListener('submit', async function (e) {
     e.preventDefault();
-    console.log('wordking');
+   
     const currentPassword = document.querySelector('#password-current').value;
     const password = document.querySelector('#password').value;
     const confirmPassword = document.querySelector('#password-confirm').value;

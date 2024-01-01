@@ -4,7 +4,8 @@ export async function getLogin(email, password) {
   try {
     const result = await axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/v1/users/login',
+      // url: 'http://localhost:8000/api/v1/users/login', for our api in development
+      url: '/api/v1/users/login',
       data: { email: email.value, password: password.value },
     });
     
@@ -23,7 +24,7 @@ export async function getLogin(email, password) {
 
 export async function logout(){
 try{
-  const res=await axios({method:'GET',url:'http://localhost:8000/api/v1/users/logout'});
+  const res=await axios({method:'GET',url:'/api/v1/users/logout'});
   if(res.data.status==='success')location.reload(true);
 }
 catch(err){

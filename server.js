@@ -2,8 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 
 process.on('uncaughtException',(err)=>{
-  console.log('UNCAUGHT EXCEPTION ,SHUTTING APP' );
-  console.log(err.name,err.message);
+  // console.log('UNCAUGHT EXCEPTION ,SHUTTING APP' );
+  // console.log(err.name,err.message);
   process.exit(1)
 })
 //The above line of code is to find if we have any error in our files , like console.log(x) ,where we have not defined x etc
@@ -13,14 +13,14 @@ const app = require('./index');
 const PORT = process.env.PORT || 8000;
 
 const server = app.listen(PORT, () => {
-  console.log('server is running');
+  // console.log('server is running');
 });
 
 //handling unhandledRejection error -like which are not occured because of mongoose or express either , but outside of them like password of database is wrong  or something else
 
 process.on('unhandledRejection', (err) => {
-  console.log(err.name, err.message);
-  console.log('unhandledRejection shutting down');
+  // console.log(err.name, err.message);
+  // console.log('unhandledRejection shutting down');
   server.close(() => {
     process.exit(1);
   }); //this code is for - we are shutting down our app gracefully , because there might be other req going on
