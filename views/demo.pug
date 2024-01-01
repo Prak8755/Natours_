@@ -1,0 +1,26 @@
+doctype html
+html  
+ head  
+  title Natours app 
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='shortcut icon' type='image/png' href='img/favicon.png')
+
+  body  
+   h1 welcome to our first web page 
+   p i am good
+
+    <! this is comment in pug, it shows in html page!>
+    //- this is not comment , it will not show in html page--//
+
+     <!buffered code- combination of html and js code!>
+    h1=tour 
+     <!unbuffered code- only js code!>
+     -const x=12;
+     h1=x
+
+     h1 Html #{tour}
+
+    //-  for indentation using vs code use pug beautify - select all code and the command+shift+p - then select pug beautify 
+   
+   
+   
